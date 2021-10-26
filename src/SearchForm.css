@@ -1,0 +1,77 @@
+.SearchForm {
+    width: 100%;
+    margin: auto;
+}
+
+.SearchForm input {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgb(155, 37, 155);
+    border-width: 1px;
+    width: 70%
+}
+
+.SearchForm label {
+    width: 15%;
+}
+
+.SearchForm input:focus {
+    background-color: rgb(250, 240, 250);
+}
+
+.SearchForm button {
+    background-color: rgb(155, 37, 155);
+    color: white;
+    border-radius: 10px;
+    border: white;
+    height: 37px;
+    margin-top: 20px;
+    min-width: 90%;
+}
+
+.SearchForm button:hover {
+    cursor: pointer;
+    background-color: rgb(192, 97, 192);
+}
+
+@media (min-width:650px) {
+    .SearchForm {
+        width: 100%;
+        margin: auto;
+    }
+
+    .SearchForm input {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        border-color: rgb(155, 37, 155);
+        border-width: 1px;
+        width: 60%
+    }
+
+    .SearchForm label {
+        width: 20%;
+    }
+
+    .SearchForm input:focus {
+        background-color: rgb(250, 240, 250);
+    }
+
+    .SearchForm button {
+        background-color: rgb(155, 37, 155);
+        color: white;
+        border-radius: 10px;
+        border: white;
+        height: 37px;
+        width: 20%;
+        min-width: 70px;
+    }
+
+    .SearchForm button:hover {
+        cursor: pointer;
+        background-color: rgb(192, 97, 192);
+    }
+}
