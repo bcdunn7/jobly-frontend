@@ -14,7 +14,7 @@ function App() {
 	const [token, setToken] = useState(null);
 	const [user, setUser] = useState(null);
 	const [appliedToIds, setAppliedToIds] = useState(new Set());
-	const [isLoading, setIsLoading] = useState(true);
+	const [infoLoaded, setInfoLoaded] = useState(false);
 
 	// save token to localStorage and state
 	const saveUserToken = (token) => {
@@ -36,33 +36,33 @@ function App() {
 		setUser(null);
 	}
 
-// when token changes, load user data
-useEffect(() => {
-	async function getUserData() {
-		const token = localStorage.getItem('token');
-		setToken(token);
-		if (token) {
-			try {
-				const { username } = jwt.decode(token);
-				JoblyApi.token = token;
-				const res = await JoblyApi.getUser(username);
-				setUser(res.user);
-				setAppliedToIds(new Set([...res.user.applications]));
-			} catch (e) {
-				console.error(e);
-				setUser(null);
+	// when token changes, load user data
+	useEffect(() => {
+		async function getUserData() {
+			const token = localStorage.getItem('token');
+			setToken(token);
+			if (token) {
+				try {
+					const { username } = jwt.decode(token);
+					JoblyApi.token = token;
+					const res = await JoblyApi.getUser(username);
+					setUser(res.user);
+					setAppliedToIds(new Set([...res.user.applications]));
+				} catch (e) {
+					console.error(e);
+					setUser(null);
+				}
 			}
+			setInfoLoaded(true);
 		}
-		setInfoLoaded(true);
-	}
 
-	setInfoLoaded(false);
-	getUserData();
-}, [token])
+		setInfoLoaded(false);
+		getUserData();
+	}, [token])
 
 	return (
 		<>
-			{isLoading
+			{!infoLoaded
 				? <div className="loading-div"><CircularProgress/></div>
 				: <div className="App">
 					<UserContext.Provider value={{ login, signup, logout, setUser, user, appliedToIds, setAppliedToIds }}>
