@@ -22,15 +22,6 @@ function App() {
 		setToken(token);
 	}
 
-	// on mount, get token from loaclstorage
-	useEffect(() => {
-		async function checkLocalStorage() {
-			const token = localStorage.getItem('token');
-			setToken(token);
-		}
-		checkLocalStorage();
-	}, [])
-
 	const login = (token) => {
 		saveUserToken(token);
 	}
@@ -45,27 +36,29 @@ function App() {
 		setUser(null);
 	}
 
-	// when token changes, load user data
-	useEffect(() => {
-		async function getUserData() {
-			const { username } = jwt.decode(token);
-	
+// when token changes, load user data
+useEffect(() => {
+	async function getUserData() {
+		const token = localStorage.getItem('token');
+		setToken(token);
+		if (token) {
 			try {
+				const { username } = jwt.decode(token);
 				JoblyApi.token = token;
 				const res = await JoblyApi.getUser(username);
 				setUser(res.user);
 				setAppliedToIds(new Set([...res.user.applications]));
-				setIsLoading(false);
 			} catch (e) {
 				console.error(e);
+				setUser(null);
 			}
 		}
-		if (token) {
-			getUserData();
-		} else if (!token) {
-			setIsLoading(false);
-		}
-	}, [token])
+		setInfoLoaded(true);
+	}
+
+	setInfoLoaded(false);
+	getUserData();
+}, [token])
 
 	return (
 		<>
