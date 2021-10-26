@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Jobly React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployed Here:
+[Surge Deployment](https://jobly-react-app.surge.sh/)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This is a react app that allows a user to keep track of companies and jobs which they are interested in and have applied to. It's a simple app with user auth, a companies listing, job listing, company details page, and a profile page. It uses an api class to communicate with a backend that is already deployed here: [backend](https://jobly-react-app.herokuapp.com/).
 
-### `npm start`
+## To Recreate
+Require Tech: Node/npm
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Download/Clone Git and navigate to file
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    ``` 
+    $ git clone https://github.com/bcdunn7/jobly-frontend
+    $ cd path-to-jobly-frontend
+    ```
 
-### `npm test`
+* Download dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```
+    $ npm install
+    ```
 
-### `npm run build`
+* Start server with REACT_APP variable (_There is already a backend up and running, so you can run a local front end that is connected to the back end with this command:_)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```
+    $ REACT_APP_BASE_URL=https://jobly-react-app.herokuapp.com npm start
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* _Or feel free to run locally without backend connection: npm start_
+* Navigate to server/localhost
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### **Tech Used:**
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+- React Router 
+- Formik 
+- MaterialUI 
